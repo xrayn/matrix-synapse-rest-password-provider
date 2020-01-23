@@ -4,11 +4,6 @@
 - [Configure](#configure)
 - [Integrate](#integrate)
 - [Support](#support)
----
-
-**This project is no longer maintained.**
-
----
 
 ## Overview
 This synapse's password provider allows you to validate a password for a given username and return a user profile using an existing backend, like:
@@ -18,7 +13,7 @@ This synapse's password provider allows you to validate a password for a given u
 - CRMs (Wordpress, ...)
 - self-hosted clouds (Nextcloud, ownCloud, ...)
 
-It is mainly used with [mxisd](https://github.com/kamax-matrix/mxisd), the Federated Matrix Identity Server, to provide
+It is mainly used with [ma1sd](https://github.com/ma1uta/ma1sd), the Federated Matrix Identity Server, to provide
 missing features and offer a fully integrated solution (directory, authentication, search).
 
 **NOTE:** This module doesn't provide direct integration with any backend. If you do not use mxisd, you will need to write
@@ -31,7 +26,7 @@ Copy in whichever directory python3.x can pick it up as a module.
 
 If you installed synapse using the Matrix debian repos:
 ```
-sudo curl https://raw.githubusercontent.com/kamax-matrix/matrix-synapse-rest-auth/master/rest_auth_provider.py -o /opt/venvs/matrix-synapse/lib/python3.5/site-packages/rest_auth_provider.py
+sudo curl https://raw.githubusercontent.com/ma1uta/matrix-synapse-rest-password-provider/master/rest_auth_provider.py -o /opt/venvs/matrix-synapse/lib/python3.7/site-packages/rest_auth_provider.py
 ```
 If the command fail, double check that the python version still matches. If not, please let us know by opening an issue.
 
@@ -40,7 +35,7 @@ Copy in whichever directory python2.x can pick it up as a module.
 
 If you installed synapse using the Matrix debian repos:
 ```
-sudo curl https://raw.githubusercontent.com/kamax-matrix/matrix-synapse-rest-auth/master/rest_auth_provider.py -o /usr/lib/python2.7/dist-packages/rest_auth_provider.py
+sudo curl https://raw.githubusercontent.com/ma1uta/matrix-synapse-rest-password-provider/master/rest_auth_provider.py -o /usr/lib/python2.7/dist-packages/rest_auth_provider.py
 ```
 If the command fail, double check that the python version still matches. If not, please let us know by opening an issue.
 
