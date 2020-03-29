@@ -21,22 +21,12 @@ your own backend, following the [Integration section](#integrate). This module s
 and profile information into actionables in synapse, and adapt your user profile with what is given.
 
 ## Install
-### From Synapse v0.34.0/py3
-Copy in whichever directory python3.x can pick it up as a module.  
+Copy in whichever directory python can pick it up as a module.
 
-If you installed synapse using the Matrix debian repos:
 ```
-sudo curl https://raw.githubusercontent.com/ma1uta/matrix-synapse-rest-password-provider/master/rest_auth_provider.py -o /opt/venvs/matrix-synapse/lib/python3.7/site-packages/rest_auth_provider.py
+sudo pip install git+https://github.com/ma1uta/matrix-synapse-rest-password-provider
 ```
-If the command fail, double check that the python version still matches. If not, please let us know by opening an issue.
 
-### Before Synapse v0.34.0/py3 or any py2-based release
-Copy in whichever directory python2.x can pick it up as a module.  
-
-If you installed synapse using the Matrix debian repos:
-```
-sudo curl https://raw.githubusercontent.com/ma1uta/matrix-synapse-rest-password-provider/master/rest_auth_provider.py -o /usr/lib/python2.7/dist-packages/rest_auth_provider.py
-```
 If the command fail, double check that the python version still matches. If not, please let us know by opening an issue.
 
 ## Configure
