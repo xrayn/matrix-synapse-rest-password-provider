@@ -68,8 +68,20 @@ class RestAuthProvider(object):
             if localpart != localpart.lower() and self.regLower:
                 logger.info('User %s was cannot be created due to username lowercase policy', localpart)
                 return False
+            if auth["profile"]:
+                logger.info("Setting display name for register (and autojoin)")
+                profile = auth["profile"]
 
-            user_id, access_token = (await self.account_handler.register(localpart=localpart))
+                if "display_name" in profile and ((registration and self.config.setNameOnRegister) or (self.config.setNameOnLogin)):
+                    display_name = profile["display_name"]
+                    logger.info("Seeting the default_display_name to: %s", display_name)
+                    user_id, access_token = (await self.account_handler.register(localpart=localpart, displayname=display_name))
+                else:
+                    logger.info("display_name not found or disabled by configuration")
+                    user_id, access_token = (await self.account_handler.register(localpart=localpart))
+            else:
+                logger.info("auth[profile] could not be found!")
+                user_id, access_token = (await self.account_handler.register(localpart=localpart))
             registration = True
             logger.info("Registration based on REST data was successful for %s", user_id)
         else:
@@ -209,3 +221,5 @@ def time_msec():
     """Get the current timestamp in milliseconds
     """
     return int(time.time() * 1000)
+
+
